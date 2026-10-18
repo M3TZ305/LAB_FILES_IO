@@ -4,7 +4,8 @@ import json
 import os
 from datetime import date
 
-DATA_FILE = "studio_data.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_FILE = os.path.join(BASE_DIR, "studio_data.json")
 
 def load_data():
     if not os.path.exists(DATA_FILE):

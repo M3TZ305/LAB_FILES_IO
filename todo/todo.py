@@ -1,4 +1,7 @@
+import os
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(current_dir, "to_do.txt")
 
 while True:
     choice = input("Do you want to add a new To-Do item? (answer by 'y' for yes, 'n' for no, or 'exit' to quit): ").strip().lower()
@@ -9,7 +12,7 @@ while True:
         
     elif choice == "y":
         todo_item = input("Type in your new To-Do item: ")
-        with open("to_do.txt", "a", encoding="utf-8") as file:
+        with open(file_path, "a", encoding="utf-8") as file:
             file.write(todo_item + "\n")
         print("✓ Added successfully!\n")
         
@@ -18,7 +21,7 @@ while True:
         
         if list_choice == "y":
             try:
-                with open("to_do.txt", "r", encoding="utf-8") as file:
+                with open(file_path, "r", encoding="utf-8") as file:
                     print("\n--- Your To-Do List ---")
                     for line in file:
                         print(line.strip())
